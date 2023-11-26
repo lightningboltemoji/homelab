@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: ghcr.io/hotio/qbittorrent
+    network_mode: container:gluetun
+    restart: unless-stopped
+    environment:
+      - WEBUI_PORTS=9091
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./config:/config
+      - ./data:/data
+      - /mnt/hdd/Downloads:/app/qBittorrent/downloads

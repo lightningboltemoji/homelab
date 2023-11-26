@@ -1,0 +1,14 @@
+. {
+	any
+	errors
+	reload 10s
+	forward . tls://1.1.1.1 tls://1.0.0.1 {
+		tls_servername cloudflare-dns.com
+		health_check 5s
+	}
+	cache 30
+}
+
+in.cecchetti.xyz:53 {
+	file /home/nonroot/db
+}
