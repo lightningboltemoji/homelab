@@ -1,0 +1,1 @@
+sudo docker run -it --rm --name certbot -v "$PWD/private/cloudflare:/cloudflare" -v "$PWD/private/letsencrypt:/var/lib/letsencrypt" certbot/dns-cloudflare certonly --agree-tos --email tanner@cecchetti.xyz --non-interactive --dns-cloudflare --dns-cloudflare-credentials /cloudflare/credentials -d '*.in.cecchetti.xyz'

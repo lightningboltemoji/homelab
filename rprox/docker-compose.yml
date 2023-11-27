@@ -6,4 +6,4 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./letsencrypt:/etc/letsencrypt
+      - ./private/letsencrypt:/etc/letsencrypt

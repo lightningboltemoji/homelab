@@ -6,7 +6,7 @@ services:
     user: "root"
     network_mode: "host"
     volumes:
-      - /var/lib/jellyfin/config:/config
-      - /var/lib/jellyfin/cache:/cache
+      - ./config:/config
+      - ./cache:/cache
       - /volume1/Media:/media
     restart: "unless-stopped"
