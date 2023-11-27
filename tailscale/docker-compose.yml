@@ -3,6 +3,7 @@ services:
   tailscaled:
     image: tailscale/tailscale
     container_name: tailscale
+    network_mode: host
     environment:
       - TS_HOSTNAME=synology
       - TS_STATE_DIR=/state
