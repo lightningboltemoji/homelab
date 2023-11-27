@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  tailscaled:
+    image: tailscale/tailscale
+    environment:
+      - TS_STATE_DIR=/state
+    volumes:
+      - ./state:/state
