@@ -1,12 +1,12 @@
 . {
 	any
 	errors
-	reload 10s
+	reload 60s
 	forward . tls://1.1.1.1 tls://1.0.0.1 {
 		tls_servername cloudflare-dns.com
-		health_check 5s
+		health_check 60s
 	}
-	cache 30
+	cache 60s
 }
 
 in.cecchetti.xyz:53 {

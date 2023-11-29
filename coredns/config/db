@@ -8,7 +8,5 @@ $TTL 1m
                                   2h             ; Retry
                                   4w             ; Expire
                                   1h)            ; Minimum TTL
-@                 IN  A       192.168.0.200       ; Local IPv4 address for example.com.
-@                 IN  NS      ns.in.cecchetti.xyz.    ; Name server for example.com.
-ns                IN  CNAME   @                  ; Alias for name server (points to example.com.)
-* IN CNAME @
+@                 IN  NS      ns.in.cecchetti.xyz.
+*                 IN  A       192.168.0.200
