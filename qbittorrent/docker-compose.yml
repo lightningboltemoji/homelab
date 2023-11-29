@@ -13,5 +13,4 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./config:/config
-      - ./data:/data
       - /volume1/Media/Downloads:/app/qBittorrent/downloads

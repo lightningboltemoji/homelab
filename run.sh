@@ -6,6 +6,7 @@ for d in $(ls -d */); do
     echo "######################################"
     cd "$d"
     docker-compose build --pull
-    docker-compose up --pull -d
-    cd -
+    docker-compose up -d --pull always
+    cd - &> /dev/null
+    echo ""
 done
