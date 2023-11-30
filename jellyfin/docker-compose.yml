@@ -9,4 +9,8 @@ services:
       - ./config:/config
       - ./cache:/cache
       - /volume1/Media:/media
+    group_add:
+      - "937" # id of videodriver from /etc/group
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
     restart: "unless-stopped"
