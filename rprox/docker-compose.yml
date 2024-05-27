@@ -1,9 +1,0 @@
-version: "3.9"
-services:
-  rprox:
-    build: .
-    container_name: rprox
-    restart: unless-stopped
-    network_mode: host
-    volumes:
-      - ./private/letsencrypt:/etc/letsencrypt

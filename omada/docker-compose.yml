@@ -4,6 +4,8 @@ services:
     image: mbentley/omada-controller
     container_name: omada-controller
     restart: unless-stopped
+    networks:
+      - traefik
     ulimits:
       nofile:
         soft: 4096
@@ -38,3 +40,18 @@ services:
     volumes:
       - ./data:/opt/tplink/EAPController/data
       - ./logs:/opt/tplink/EAPController/logs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.omada.rule=Host(`omada.i.nner.xyz`)"
+      - "traefik.http.services.omada.loadbalancer.server.port=8043"
+      - "traefik.http.services.omada.loadbalancer.server.scheme=https"
+      - "traefik.http.routers.omada.middlewares=omada-middlewares"
+      - "traefik.http.middlewares.omada-middlewares.chain.middlewares=omada-redirect@docker,omada-headers@docker"
+      - "traefik.http.middlewares.omada-headers.headers.customrequestheaders.Host=omada.i.nner.xyz:8043"
+      - "traefik.http.middlewares.omada-headers.headers.customresponseheaders.Host=omada.i.nner.xyz"
+      - "traefik.http.middlewares.omada-redirect.redirectregex.regex=^https:\\/\\/([^\\/]+)\\/?$$"
+      - "traefik.http.middlewares.omada-redirect.redirectregex.replacement=https://$$1/login"
+networks:
+  traefik:
+    name: traefik
+    external: true

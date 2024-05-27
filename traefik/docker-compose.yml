@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  traefik:
+    image: traefik:3.0
+    container_name: traefik 
+    restart: unless-stopped
+    networks:
+      - traefik
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    env_file:
+      - .private.env
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./.private.acme.json:/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  traefik:
+    name: traefik

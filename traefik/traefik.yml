@@ -1,0 +1,30 @@
+providers:
+  docker:
+    exposedByDefault: false
+serversTransport:
+  insecureSkipVerify: true
+entryPoints:
+  web:
+    address: ':80'
+    http:
+      redirections:
+        entrypoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ':443'
+    http:
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: i.nner.xyz
+            sans: '*.i.nner.xyz'
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+      storage: /acme.json
+      dnsChallenge:
+        provider: cloudflare
+api:
+  insecure: true

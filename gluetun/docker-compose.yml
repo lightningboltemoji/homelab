@@ -6,8 +6,18 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
+    networks:
+      - traefik
     env_file:
       - .env
       - .private.env # provide WIREGUARD_PRIVATE_KEY
     ports:
       - 9091:9091
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.torrent.rule=Host(`torrent.i.nner.xyz`)"
+      - "traefik.http.services.torrent.loadbalancer.server.port=9091"
+networks:
+  traefik:
+    name: traefik
+    external: true

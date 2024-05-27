@@ -9,6 +9,6 @@
 	cache 60s
 }
 
-in.cecchetti.xyz:53 {
+i.nner.xyz:53 {
 	file /home/nonroot/db
 }

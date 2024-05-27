@@ -1,12 +1,12 @@
-$ORIGIN in.cecchetti.xyz. 
+$ORIGIN i.nner.xyz. 
 $TTL 1m
 
 ; =============================== Resource Records ==============================
-@                 IN  SOA     ns.in.cecchetti.xyz. tanner.cecchetti.xyz. (
+@                 IN  SOA     ns.i.nner.xyz. ta.nner.xyz. (
                                   2020010510     ; Serial
                                   1d             ; Refresh
                                   2h             ; Retry
                                   4w             ; Expire
                                   1h)            ; Minimum TTL
-@                 IN  NS      ns.in.cecchetti.xyz.
+@                 IN  NS      ns.i.nner.xyz.
 *                 IN  A       192.168.0.200
