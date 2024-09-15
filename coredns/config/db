@@ -9,4 +9,5 @@ $TTL 1m
                                   4w             ; Expire
                                   1h)            ; Minimum TTL
 @                 IN  NS      ns.i.nner.xyz.
+t1tan             IN  A       192.168.0.201
 *                 IN  A       192.168.0.200

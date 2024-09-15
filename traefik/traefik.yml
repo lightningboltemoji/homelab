@@ -1,6 +1,8 @@
 providers:
   docker:
     exposedByDefault: false
+  file:
+    filename: "/etc/traefik/syn.yml"
 serversTransport:
   insecureSkipVerify: true
 entryPoints:
@@ -28,3 +30,4 @@ certificatesResolvers:
         provider: cloudflare
 api:
   insecure: true
+#  dashboard: true

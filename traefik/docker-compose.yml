@@ -6,6 +6,8 @@ services:
     restart: unless-stopped
     networks:
       - traefik
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - 80:80
       - 443:443
@@ -14,6 +16,7 @@ services:
       - .private.env
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./syn.yml:/etc/traefik/syn.yml
       - ./.private.acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
 

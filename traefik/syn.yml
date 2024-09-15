@@ -1,0 +1,10 @@
+http:
+  routers:
+    syn:
+      rule: Host(`synology.i.nner.xyz`)
+      service: syn
+  services:
+    syn:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:5000
