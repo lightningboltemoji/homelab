@@ -3,6 +3,7 @@ services:
   coredns:
     container_name: coredns
     image: coredns/coredns
+    command: -conf /home/nonroot/Corefile
     restart: unless-stopped
     ports:
       - 53:53
